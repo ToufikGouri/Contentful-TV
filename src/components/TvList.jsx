@@ -5,15 +5,15 @@ import TvCard from "../components/TvCard"
 
 // Styled Components
 const Wrapper = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
-    margin-top: 20px;
-    border: 2px solid;
-    width: 80%;
+    margin-top: 20px; 
+    // width: 80%;
 `
 
+// Main Component
 const TvList = () => {
 
     // Api keys for client data
@@ -34,13 +34,13 @@ const TvList = () => {
         })()
     }, [setAllTvData])
 
-    console.log(allTvData?.items, "Main");
+    console.log(allTvData);
+    
 
     return (
         <>
             {/* {allTvData?.items[1].fields.tvName}   */}
             <Wrapper>
-                <h1>Here will be the list</h1>
 
                 {allTvData?.items.map(val =>
                     <TvCard key={val.sys.id} fields={val.fields} />
