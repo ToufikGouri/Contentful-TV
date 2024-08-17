@@ -3,26 +3,32 @@ import styled from 'styled-components'
 
 // Styled Components
 const Wrapper = styled.section` 
-  width: 40%; 
+  width: 30%; 
   border-radius: 8px;
   overflow: hidden;
   margin: 20px 0px;
   padding: 0 10px;
   display: flex;
+  flex-direction: column;
+  background-color: white;
 `
 
 const SectionImg = styled.section` 
-  width: 45%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 `
 const Image = styled.img`
-  height: 250px;
-  width: 250px; 
+  height: 350px;
+  width: 350px; 
   object-fit: contain;
 `
 
 const SectionText = styled.section` 
   width: 100%;
   margin-left: 10px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -36,6 +42,7 @@ const Description = styled.p`
 const Specs = styled.div` 
   font-size: 12px;
   color: gray; 
+  margin: 10px 0;
 `
 const Price = styled.p`
   font-size: 24px;
@@ -48,8 +55,6 @@ const Price = styled.p`
 const TvCard = ({ fields }) => {
 
   const { tvName, tvDescription, tvImage, tvPrice, tvSpecs } = fields
-
-  // Specs: tvSpecs.specs.(hdmiPorts | resolution | screenSize | smartTV)
 
   return (
     <>

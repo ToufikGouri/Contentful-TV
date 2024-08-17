@@ -8,12 +8,11 @@ body {
     /* background-color: #121212; */
     /* color: white; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f1f3f4;
+    background-color: #e4e4e4;
 }
 
 .card {
     /* background-color: #181818;   */ 
-    background-color: white;
 }
 .card:hover{
     cursor: pointer;
