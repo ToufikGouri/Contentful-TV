@@ -10,13 +10,3 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e4e4e4;
 }
-
-.card {
-    /* background-color: #181818;   */ 
-}
-.card:hover{
-    cursor: pointer;
-    scale: 1.05;
-    box-shadow: 0px 2px 10px -6px black;
-    transition: all 200ms ease-in-out;
-}

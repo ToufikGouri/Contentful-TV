@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { createClient } from 'contentful'
+import React from 'react'
 import styled from 'styled-components'
 import TvCard from "../components/TvCard"
 import Banner from './Banner'
@@ -22,42 +21,18 @@ const Title = styled.h1`
 `
 
 // Main Component
-const TvList = () => {
-
-    // Api keys for client data
-    const space = import.meta.env.VITE_SPACE
-    const accessToken = import.meta.env.VITE_ACCESS_TOKEN
-
-    // Getting client data
-    const client = createClient({
-        space,
-        accessToken,
-    })
-
-    const [allTvData, setAllTvData] = useState(null)
-
+const TvList = ({ allTvData = null }) => {
     // For random banner data (0-5)
     const randomInd = () => Math.floor(Math.random() * 6)
     const randomBannerTitle = ["Experience a New Era of", "Presenting our all new", "Introducing the Revolutionary", "Experience Unmatched Quality with", "Unveiling the Latest", "Discover the Future with"]
 
-    useEffect(() => {
-        ; (async () => {
-            await client.getEntries().then((data) => setAllTvData(data))
-        })()
-    }, [setAllTvData])
-
-    console.log(allTvData);
-
-
-
     return (
         <>
-            {/* {allTvData?.items[1].fields.tvName}   */}
             <Wrapper>
 
                 {allTvData && <Banner heroTitle={randomBannerTitle[randomInd()]} fields={allTvData.items[randomInd()].fields} />}
 
-                <Title>Browse All Available TVs on Sale</Title>
+                <Title>Featured Products</Title>
 
                 {allTvData?.items.map(val =>
                     <TvCard key={val.sys.id} fields={val.fields} />

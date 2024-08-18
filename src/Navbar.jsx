@@ -1,5 +1,7 @@
 import React from 'react'
+import CT_Logo from "../public/CT_Logo.png"
 import styled from 'styled-components'
+import { LogIn, ShoppingCart } from 'lucide-react'
 
 const Wrapper = styled.section` 
     height: 60px;
@@ -15,31 +17,39 @@ const Wrapper = styled.section`
 `
 const UL = styled.ul`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     list-style: none; 
-    width: 50%;
-    font-size: 20px;
+    width: 40%;
+    text-transform: Uppercase;
+    font-weight: 500;
+    // border: 2px solid red;    
 `
 const LI = styled.li`
     cursor: pointer; 
     padding: 2px 0;
+    display: flex; 
+    align-items: center; 
     &:hover {
-        color: skyblue;  
-    }
+        color: #e73c17;  
+    }  
 `
 
 const Navbar = () => {
     return (
         <>
             <Wrapper>
-                <h1>Tv Store</h1>
+                <div style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+                    <img src={CT_Logo} alt="CT" height={30} />
+                    <h1 style={{ margin: "0 5px" }}>Contentful TV</h1>
+                </div>
                 <UL>
-                    <LI>Home</LI>
+                    <LI style={{ color: "#e73c17" }}>Home</LI>
                     <LI>About</LI>
+                    <LI>Shop</LI>
                     <LI>Contact</LI>
-                    <LI>Orders</LI>
+                    <LI>Orders <ShoppingCart height={16} /> </LI>
+                    <LI>Login <LogIn height={16} /> </LI>
                 </UL>
-                <h1>Signup</h1>
             </Wrapper>
         </>
     )

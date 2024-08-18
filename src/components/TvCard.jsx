@@ -1,3 +1,4 @@
+import { ShoppingCart } from 'lucide-react'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -6,22 +7,29 @@ const Wrapper = styled.section`
   width: 30%; 
   border-radius: 8px;
   overflow: hidden;
-  margin: 20px 0px;
-  padding: 0 10px;
+  margin: 20px 20px;
+  padding: 0px 10px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #f2f2f2;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0px 2px 10px -6px black;
+  &:hover{
+    scale: 1.05;
+    box-shadow: 0px 2px 10px -2px black;
+  }
 `
 
 const SectionImg = styled.section` 
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 `
 const Image = styled.img`
-  height: 350px;
-  width: 350px; 
+  height: 250px;
+  width: 250px; 
   object-fit: contain;
 `
 
@@ -33,23 +41,40 @@ const SectionText = styled.section`
   flex-direction: column;
   justify-content: space-around;
 `
-const Title = styled.h1`
+const Title = styled.p`
   font-size: 20px;
 `
 const Description = styled.p`
   margin-right: 30px;
 `
 const Specs = styled.div` 
-  font-size: 12px;
+  font-size: 14px;
   color: gray; 
   margin: 10px 0;
 `
 const Price = styled.p`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: green;
 `
-
+const CardBtn = styled.button`  
+    width: 95%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 12px 10px; 
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    &:hover {
+        color: white;
+        background-color: black;
+    }
+`
 
 
 const TvCard = ({ fields }) => {
@@ -58,7 +83,7 @@ const TvCard = ({ fields }) => {
 
   return (
     <>
-      <Wrapper className='card'>
+      <Wrapper>
 
         <SectionImg>
           <Image src={tvImage?.fields.file.url} alt={tvName} />
@@ -66,15 +91,14 @@ const TvCard = ({ fields }) => {
 
         <SectionText>
           <Title>{tvName}</Title>
-          <Description>{tvDescription}</Description>
+          {/* <Description>{tvDescription}</Description> */}
           <Specs>
-            <p>Hdmi ports: {tvSpecs?.specs.hdmiPorts} </p>
-            <p>Resolution: {tvSpecs?.specs.resolution} </p>
-            <p>Screen size: {tvSpecs?.specs.screenSize} </p>
-            <p>SmartTV: {tvSpecs?.specs.smartTV ? "Yes" : "No"} </p>
+            <p>{tvSpecs?.specs.hdmiPorts} Hdmi ports . {tvSpecs?.specs.resolution}</p>
+            <p>{tvSpecs?.specs.screenSize} . {tvSpecs?.specs.smartTV ? "SmartTV" : "No"} </p>
           </Specs>
           <Price>${tvPrice}</Price>
         </SectionText>
+        <CardBtn>Add To Cart <ShoppingCart height={16} /></CardBtn>
 
       </Wrapper>
     </>
