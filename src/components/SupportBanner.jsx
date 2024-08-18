@@ -7,9 +7,11 @@ const Wrapper = styled.section`
     margin: 40px 0;
     display: flex;
     justify-content: space-evenly; 
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
 `
-const Card = styled.div`
-    // border: 2px solid red; 
+const Card = styled.div` 
     display: flex;
     align-items: center; 
 `
@@ -46,7 +48,7 @@ const SupportBanner = () => {
                 {data.map((val, ind) =>
                     <Card key={ind}>
                         {val.icon}
-                        <div style={{ padding: "20px" }}>
+                        <div style={{ padding: 20 }}>
                             <h1 style={{ textTransform: "Uppercase" }}>{val.heading}</h1>
                             <p>{val.desc}</p>
                         </div>

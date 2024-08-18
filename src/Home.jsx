@@ -38,9 +38,8 @@ const Home = () => {
                 console.log(error);
             }
         })()
-    }, [setAllTvData])
-
-    console.log(allTvData);
+    }, [setAllTvData]) 
+    
 
     return (
         <>

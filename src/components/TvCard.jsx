@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 // Styled Components
 const Wrapper = styled.section` 
-  width: 30%; 
+  width: 28%; 
   border-radius: 8px;
   overflow: hidden;
-  margin: 20px 20px;
+  margin: 20px;
   padding: 0px 10px;
   display: flex;
   flex-direction: column;
@@ -18,6 +18,14 @@ const Wrapper = styled.section`
   &:hover{
     scale: 1.05;
     box-shadow: 0px 2px 10px -2px black;
+  }
+  @media (max-width: 768px){ 
+    width: 100%;
+    margin: 20px 0;
+  }
+  @media (min-width: 769px) and (max-width: 1024px){
+    width: 40%;
+    margin: 20px 0;
   }
 `
 

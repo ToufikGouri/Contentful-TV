@@ -11,6 +11,9 @@ const Wrapper = styled.section`
     align-items: center;
     margin-top: 20px; 
     width: 80%;
+    @media (max-width: 768px){ 
+        width: 90%;
+    }
 `
 const Title = styled.h1`
     font-size: 32px; 

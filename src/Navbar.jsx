@@ -1,7 +1,7 @@
 import React from 'react'
 import CT_Logo from "../public/CT_Logo.png"
 import styled from 'styled-components'
-import { LogIn, ShoppingCart } from 'lucide-react'
+import { LogIn, Menu, ShoppingCart } from 'lucide-react'
 
 const Wrapper = styled.section` 
     height: 60px;
@@ -22,7 +22,10 @@ const UL = styled.ul`
     width: 40%;
     text-transform: Uppercase;
     font-weight: 500;
-    // border: 2px solid red;    
+    @media (max-width: 769px){
+        border: 2px solid red;
+        display: none;
+    }    
 `
 const LI = styled.li`
     cursor: pointer; 
@@ -32,6 +35,12 @@ const LI = styled.li`
     &:hover {
         color: #e73c17;  
     }  
+`
+const MenuBtn = styled.div`
+    display: none;
+    @media (max-width: 769px){
+    display: block;
+  }
 `
 
 const Navbar = () => {
@@ -50,6 +59,10 @@ const Navbar = () => {
                     <LI>Orders <ShoppingCart height={16} /> </LI>
                     <LI>Login <LogIn height={16} /> </LI>
                 </UL>
+                {/* For mobile screen > 768px */}
+                <MenuBtn>
+                    <Menu />
+                </MenuBtn>
             </Wrapper>
         </>
     )

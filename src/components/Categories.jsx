@@ -17,6 +17,11 @@ const Wrapper = styled.section`
     background-color: black;
     margin: 80px 0;
     font-weight: bold;
+    overflow: hidden;
+    background-position: center;
+    @media (max-width: 768px){
+        justify-content: center;
+    }
 `
 const Heading = styled.h1` 
     font-size: 32px;
@@ -35,6 +40,10 @@ const Card = styled.div`
     &:hover {
         scale: 1.05;
         color: #e73c17;
+    }
+    @media (max-width: 768px){
+        text-align: center;
+        margin: 0 40px;
     } 
 `
 

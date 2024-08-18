@@ -10,6 +10,10 @@ const Wrapper = styled.section`
     align-items: center;
     margin-top: 20px; 
     width: 80%;
+    @media (max-width: 768px){
+        width: 100%;
+        flex-direction: column;
+    }
 `
 const Card = styled.div` 
     height: 300px;
@@ -23,6 +27,12 @@ const Card = styled.div`
     transition: all 200ms ease-in-out;
     &:hover {
         scale: 1.05;
+    }
+    @media (max-width: 768px){ 
+        width: 90%;
+        margin: 20px 0;
+        background-repeat: no-repeat;
+        background-size: cover; 
     }
 `
 const CardContent = styled.div` 

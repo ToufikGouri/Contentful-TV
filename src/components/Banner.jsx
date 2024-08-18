@@ -13,6 +13,14 @@ const Wrapper = styled.section`
     cursor: pointer;
     background: rgb(255,255,255);
     background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(0,255,196,0.1601890756302521) 100%);
+    @media (max-width: 768px){
+        width: 100%;
+        height: initial;
+        flex-direction: column;
+        justify-contet: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+    }
 `
 
 const SectionImg = styled.section` 
@@ -36,9 +44,15 @@ const SectionText = styled.section`
 `
 const Title = styled.h1`
   font-size: 32px;
+  @media (max-width: 768px){
+      font-size: 24px;  
+    }
 `
 const Description = styled.p`
   margin-right: 30px;
+  @media (max-width: 768px){ 
+      margin: 16px 0;
+    }
 `
 const Specs = styled.div` 
   font-size: 12px;
@@ -53,27 +67,27 @@ const Price = styled.p`
 
 const Banner = ({ fields, heroTitle }) => {
 
-    const { tvName, tvDescription, tvImage, tvPrice, tvSpecs } = fields
+  const { tvName, tvDescription, tvImage, tvPrice, tvSpecs } = fields
 
-    return (
-        <>
-            <Wrapper>
+  return (
+    <>
+      <Wrapper>
 
-                <SectionImg>
-                    <Image src={tvImage?.fields.file.url} alt={tvName} />
-                </SectionImg>
+        <SectionImg>
+          <Image src={tvImage?.fields.file.url} alt={tvName} />
+        </SectionImg>
 
-                <SectionText>
-                    <Title>{heroTitle} {tvName}</Title>
-                    <Description>{tvDescription} <br /> With {tvSpecs?.specs.hdmiPorts} Hdmi Ports & an impressive {tvSpecs?.specs.resolution} Screen. </Description>
-                    <div>
-                        Starting only from
-                        <Price>${tvPrice}</Price>
-                    </div>
-                </SectionText>
-            </Wrapper>
-        </>
-    )
+        <SectionText>
+          <Title>{heroTitle} {tvName}</Title>
+          <Description>{tvDescription} <br /> With {tvSpecs?.specs.hdmiPorts} Hdmi Ports & an impressive {tvSpecs?.specs.resolution} Screen. </Description>
+          <div>
+            Starting only from
+            <Price>${tvPrice}</Price>
+          </div>
+        </SectionText>
+      </Wrapper>
+    </>
+  )
 }
 
 export default Banner
